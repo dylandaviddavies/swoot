@@ -3,8 +3,6 @@
 @use '../variables/base' as *;
 @use '../utils/functions' as *;
 
-@debug $colors;
-
 .swoot-button {
   $base-button: &;
 
