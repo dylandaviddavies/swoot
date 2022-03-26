@@ -1,0 +1,25 @@
+@use 'sass:map';
+@use '../variables/colors' as *;
+@use '../variables/base' as *;
+@use '../utils/functions' as *;
+
+@debug $colors;
+
+.swoot-button {
+  $base-button: &;
+
+  border-radius: map.get($border-radii, sm);
+
+  @each $k, $v in $colors {
+    &--#{$k} {
+      &#{$base-button}--fill {
+        background-color: $v;
+        color: color-yiq($v);
+      }
+      &#{$base-button}--stroke {
+        border: 1px solid $v;
+        color: $v;
+      }
+    }
+  }
+}

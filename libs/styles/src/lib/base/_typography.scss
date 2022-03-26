@@ -1,0 +1,11 @@
+@use '../variables/typography' as *;
+
+html,
+body,
+table,
+button,
+table,
+td,
+th {
+  font-family: $font-family;
+}

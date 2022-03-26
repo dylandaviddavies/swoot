@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/swootng",
+  "sourceRoot": "libs/swootng/src",
+  "prefix": "swoot",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/swootng"],
+      "options": {
+        "jestConfig": "libs/swootng/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/swootng/src/**/*.ts",
+          "libs/swootng/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

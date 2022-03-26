@@ -1,0 +1,14 @@
+@use 'sass:map';
+@use '../variables/typography' as *;
+
+@mixin text($size) {
+  font-size: map.get($text-sizes, $size);
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+}
+
+@mixin heading($size) {
+  font-size: map.get($text-sizes, $size);
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+}

@@ -1,0 +1,13 @@
+@use '../variables/base' as *;
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+}
+
+html {
+  font-size: $base-unit;
+}

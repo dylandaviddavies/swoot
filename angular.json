@@ -1,7 +1,8 @@
 {
   "version": 2,
   "projects": {
-    "example-ng": "apps/example-ng",
-    "example-ng-e2e": "apps/example-ng-e2e"
+    "styles": "libs/styles",
+    "swootng": "libs/swootng",
+    "types": "libs/types"
   }
 }
