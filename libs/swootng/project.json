@@ -4,6 +4,22 @@
   "sourceRoot": "libs/swootng/src",
   "prefix": "swoot",
   "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/swootng"],
+      "options": {
+        "project": "libs/swootng/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/swootng/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/swootng/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/swootng"],
