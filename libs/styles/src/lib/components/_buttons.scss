@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../variables/colors' as *;
+@use '../variables/buttons' as *;
 @use '../variables/base' as *;
 @use '../utils/functions' as *;
 
@@ -7,6 +8,7 @@
   $base-button: &;
 
   border-radius: map.get($border-radii, sm);
+  border: none;
 
   @each $k, $v in $colors {
     &--#{$k} {
@@ -17,6 +19,14 @@
       &#{$base-button}--stroke {
         border: 1px solid $v;
         color: $v;
+      }
+    }
+  }
+
+  @each $k, $v in $button-sizes {
+    &--#{$k} {
+      @each $k2, $v2 in $v {
+        #{$k2}: $v2;
       }
     }
   }

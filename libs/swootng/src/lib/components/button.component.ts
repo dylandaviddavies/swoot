@@ -1,5 +1,5 @@
 import { Component, HostBinding, Input } from '@angular/core';
-import { ButtonKind, ThemeColor } from '@swoot/types';
+import { ButtonKind, ButtonSize, ThemeColor } from '@swoot/types';
 
 @Component({
   selector: '[swoot-button]',
@@ -8,6 +8,7 @@ import { ButtonKind, ThemeColor } from '@swoot/types';
 export class ButtonComponent {
   @Input() color: ThemeColor = 'primary';
   @Input() kind: ButtonKind = 'fill';
+  @Input() size: ButtonSize = 'md';
 
   @HostBinding('class')
   get classes() {
@@ -15,6 +16,7 @@ export class ButtonComponent {
       swoot-button
       swoot-button--${this.color}
       swoot-button--${this.kind}
+      swoot-button--${this.size}
     `;
   }
 }
