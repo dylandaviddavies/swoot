@@ -3,6 +3,7 @@
   "projects": {
     "styles": "libs/styles",
     "swootng": "libs/swootng",
+    "swootreact": "libs/swootreact",
     "types": "libs/types"
   }
 }

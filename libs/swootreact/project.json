@@ -1,0 +1,43 @@
+{
+  "root": "libs/swootreact",
+  "sourceRoot": "libs/swootreact/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/swootreact",
+        "tsConfig": "libs/swootreact/tsconfig.lib.json",
+        "project": "libs/swootreact/package.json",
+        "entryFile": "libs/swootreact/src/index.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "libs/swootreact/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/swootreact/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/swootreact"],
+      "options": {
+        "jestConfig": "libs/swootreact/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

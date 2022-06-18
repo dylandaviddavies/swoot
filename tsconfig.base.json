@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@swoot/ng": ["libs/ng/src/index.ts"],
+      "@swoot/react": ["libs/swootreact/src/index.ts"],
       "@swoot/styles": ["libs/styles/src/index.ts"],
       "@swoot/swootng": ["libs/swootng/src/index.ts"],
       "@swoot/types": ["libs/types/src/index.ts"]
