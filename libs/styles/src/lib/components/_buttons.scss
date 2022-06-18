@@ -9,6 +9,7 @@
 
   border-radius: map.get($border-radii, sm);
   border: none;
+  background: none;
 
   @each $k, $v in $theme-colors {
     &--#{$k} {
@@ -18,6 +19,9 @@
       }
       &#{$base-button}--stroke {
         border: 1px solid $v;
+        color: $v;
+      }
+      &#{$base-button}--text {
         color: $v;
       }
     }

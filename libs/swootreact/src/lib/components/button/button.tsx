@@ -6,16 +6,16 @@ interface Props<T extends React.ElementType> {
   color?: ThemeColor;
   kind?: ButtonKind;
   size?: ButtonSize;
-  children?: JSX.Element;
+  children?: React.ReactNode;
 }
 
 type ButtonProps<T extends React.ElementType> = Props<T> &
   Omit<React.ComponentPropsWithoutRef<T>, keyof Props<T>>;
 
-function Button<T extends React.ElementType = 'button'>({
+export function Button<T extends React.ElementType = 'button'>({
   as,
   color = 'primary',
-  kind = 'text',
+  kind = 'fill',
   size = 'md',
   ...props
 }: ButtonProps<T>) {
@@ -30,5 +30,3 @@ function Button<T extends React.ElementType = 'button'>({
 
   return <Component {...props} className={classes} />;
 }
-
-export default Button;

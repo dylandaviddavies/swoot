@@ -3,7 +3,7 @@ import { ButtonComponent } from './button.component';
 import { ButtonModule } from './button.module';
 
 export default {
-  title: 'ButtonComponent',
+  title: 'Components/Button',
   component: ButtonComponent,
   decorators: [
     moduleMetadata({
