@@ -3,6 +3,22 @@
   "sourceRoot": "libs/types/src",
   "projectType": "library",
   "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/types"],
+      "options": {
+        "project": "libs/types/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/types/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/types/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],

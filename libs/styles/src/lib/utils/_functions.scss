@@ -10,8 +10,8 @@
   $yiq: math.div((($r * 299) + ($g * 587) + ($b * 114)), 1000);
 
   @if ($yiq >= 128) {
-    @return map.get($colors, dark);
+    @return map.get($theme-colors, dark);
   }
 
-  @return map.get($colors, light);
+  @return map.get($theme-colors, light);
 }

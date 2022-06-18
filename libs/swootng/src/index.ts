@@ -1,1 +1,1 @@
-export * from './lib/swootng.module';
+export * from './lib/components/button.component';

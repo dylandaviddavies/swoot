@@ -11,7 +11,7 @@ export class ButtonComponent {
   @Input() size: ButtonSize = 'md';
 
   @HostBinding('class')
-  get classes() {
+  get className() {
     return `
       swoot-button
       swoot-button--${this.color}
