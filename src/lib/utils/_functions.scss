@@ -22,12 +22,16 @@
 $default-theme: (
   primary: #3a86ff,
   secondary: #c4c4c4,
+  accent: purple,
+  info: cyan,
   success: green,
   error: red,
   warning: yellow,
   alt: #d2bca7,
   dark: #111111,
   light: #fff,
+  background: #fff,
+  foreground: grey,
 );
 
 @function generate-theme($partial: ()) {
