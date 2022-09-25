@@ -14,4 +14,4 @@ $palette: (
 );
 
 // all colors
-$colors: list.join($palette, background, foreground);
+$colors: list.zip($palette, background, foreground);
