@@ -1,0 +1,13 @@
+{
+  "name": "@swoot/react",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "@swoot/types": "0.0.1"
+  },
+  "main": "./index.umd.js",
+  "module": "./index.esm.js",
+  "typings": "./index.d.ts",
+  "dependencies": {}
+}
