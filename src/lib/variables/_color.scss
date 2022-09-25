@@ -1,4 +1,4 @@
-@use 'sass:map';
+@use 'sass:list';
 
 // main colors
 $palette: (
@@ -14,4 +14,4 @@ $palette: (
 );
 
 // all colors
-$colors: map.merge($palette, background, foreground);
+$colors: list.join($palette, background, foreground);
