@@ -19,14 +19,32 @@
   @return var(--swoot-#{$color});
 }
 
-@function generate-theme($partial) {
-  $ret: $partial;
+$default-theme: (
+  primary: #3a86ff,
+  secondary: #c4c4c4,
+  success: green,
+  error: red,
+  warning: yellow,
+  alt: #d2bca7,
+  dark: #111111,
+  light: #fff,
+);
 
-  @each $k, $v in $partial {
-    $light: map.get($partial, light);
-    $dark: map.get($partial, dark);
+@function generate-theme($partial: ()) {
+  $ret: map.merge($default-theme, $partial);
 
-    $ret: map.merge($ret, (#{$k}-contrast: color-yiq($v, $light, $dark)));
+  @each $k, $v in $ret {
+    $light: map.get($ret, light);
+    $dark: map.get($ret, dark);
+
+    $ret: map.merge(
+      $ret,
+      (
+        #{$k}-contrast: color-yiq($v, $light, $dark),
+        #{$k}-darker: darken($v, 10%),
+        #{$k}-lighter: lighten($v, 10%)
+      )
+    );
   }
 
   @return $ret;

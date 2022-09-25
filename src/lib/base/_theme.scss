@@ -1,19 +1,7 @@
 @use '../utils/functions' as *;
 
 $themes: (
-  light:
-    generate-theme(
-      (
-        primary: #3a86ff,
-        secondary: #c4c4c4,
-        success: green,
-        error: red,
-        warning: yellow,
-        alt: #d2bca7,
-        dark: #111111,
-        light: #fff,
-      )
-    ),
+  default: generate-theme(),
 ) !default;
 
 @each $k, $v in $themes {
