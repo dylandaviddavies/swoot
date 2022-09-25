@@ -1,0 +1,13 @@
+@use '../utils/functions' as *;
+
+$themes: (
+  default: generate-theme(),
+) !default;
+
+@each $k, $v in $themes {
+  .theme-#{$k} {
+    @each $k2, $v2 in $v {
+      --swoot-#{$k2}: #{$v2};
+    }
+  }
+}

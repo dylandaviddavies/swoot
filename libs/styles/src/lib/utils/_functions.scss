@@ -1,8 +1,7 @@
 @use 'sass:math';
 @use 'sass:map';
-@use '../variables/colors' as *;
 
-@function color-yiq($background) {
+@function color-yiq($background, $light, $dark) {
   $r: red($background);
   $g: green($background);
   $b: blue($background);
@@ -10,8 +9,47 @@
   $yiq: math.div((($r * 299) + ($g * 587) + ($b * 114)), 1000);
 
   @if ($yiq >= 128) {
-    @return map.get($theme-colors, dark);
+    @return $dark;
   }
 
-  @return map.get($theme-colors, light);
+  @return $light;
+}
+
+@function color($color) {
+  @return var(--swoot-#{$color});
+}
+
+$default-theme: (
+  primary: #3a86ff,
+  secondary: #c4c4c4,
+  accent: purple,
+  info: cyan,
+  success: green,
+  error: red,
+  warning: yellow,
+  alt: #d2bca7,
+  dark: #111111,
+  light: #fff,
+  background: #fff,
+  foreground: grey,
+);
+
+@function generate-theme($partial: ()) {
+  $ret: map.merge($default-theme, $partial);
+
+  @each $k, $v in $ret {
+    $light: map.get($ret, light);
+    $dark: map.get($ret, dark);
+
+    $ret: map.merge(
+      $ret,
+      (
+        #{$k}-contrast: color-yiq($v, $light, $dark),
+        #{$k}-darker: darken($v, 10%),
+        #{$k}-lighter: lighten($v, 10%)
+      )
+    );
+  }
+
+  @return $ret;
 }

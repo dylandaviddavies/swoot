@@ -1,7 +1,8 @@
 @use 'sass:map';
-@use '../variables/colors' as *;
+@use '../base/theme' as *;
 @use '../variables/buttons' as *;
 @use '../variables/base' as *;
+@use '../variables/color' as *;
 @use '../utils/functions' as *;
 
 .swoot-button {
@@ -11,18 +12,18 @@
   border: none;
   background: none;
 
-  @each $k, $v in $theme-colors {
+  @each $k in $palette {
     &--#{$k} {
       &#{$base-button}--fill {
-        background-color: $v;
-        color: color-yiq($v);
+        background-color: color($k);
+        color: color(#{$k}-contrast);
       }
       &#{$base-button}--stroke {
-        border: 1px solid $v;
-        color: $v;
+        border: 1px solid color($k);
+        color: color($k);
       }
       &#{$base-button}--text {
-        color: $v;
+        color: color($k);
       }
     }
   }
