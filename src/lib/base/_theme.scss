@@ -1,0 +1,25 @@
+@use '../utils/functions' as *;
+
+$themes: (
+  light:
+    generate-theme(
+      (
+        primary: #3a86ff,
+        secondary: #c4c4c4,
+        success: green,
+        error: red,
+        warning: yellow,
+        alt: #d2bca7,
+        dark: #111111,
+        light: #fff,
+      )
+    ),
+) !default;
+
+@each $k, $v in $themes {
+  .theme-#{$k} {
+    @each $k2, $v2 in $v {
+      --swoot-#{$k2}: #{$v2};
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@use 'sass:map';
+
+// main colors
+$palette: (
+  primary,
+  secondary,
+  accent,
+  success,
+  error,
+  warning,
+  info,
+  dark,
+  light
+);
+
+// all colors
+$colors: map.merge($palette, background, foreground);

@@ -1,0 +1,38 @@
+@use 'sass:map';
+@use '../base/theme' as *;
+@use '../variables/buttons' as *;
+@use '../variables/base' as *;
+@use '../variables/color' as *;
+@use '../utils/functions' as *;
+
+.swoot-button {
+  $base-button: &;
+
+  border-radius: map.get($border-radii, sm);
+  border: none;
+  background: none;
+
+  @each $k in $palette {
+    &--#{$k} {
+      &#{$base-button}--fill {
+        background-color: color($k);
+        color: color(#{$k}-contrast);
+      }
+      &#{$base-button}--stroke {
+        border: 1px solid color($k);
+        color: color($k);
+      }
+      &#{$base-button}--text {
+        color: color($k);
+      }
+    }
+  }
+
+  @each $k, $v in $button-sizes {
+    &--#{$k} {
+      @each $k2, $v2 in $v {
+        #{$k2}: $v2;
+      }
+    }
+  }
+}

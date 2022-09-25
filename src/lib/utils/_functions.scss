@@ -1,0 +1,33 @@
+@use 'sass:math';
+@use 'sass:map';
+
+@function color-yiq($background, $light, $dark) {
+  $r: red($background);
+  $g: green($background);
+  $b: blue($background);
+
+  $yiq: math.div((($r * 299) + ($g * 587) + ($b * 114)), 1000);
+
+  @if ($yiq >= 128) {
+    @return $dark;
+  }
+
+  @return $light;
+}
+
+@function color($color) {
+  @return var(--swoot-#{$color});
+}
+
+@function generate-theme($partial) {
+  $ret: $partial;
+
+  @each $k, $v in $partial {
+    $light: map.get($partial, light);
+    $dark: map.get($partial, dark);
+
+    $ret: map.merge($ret, (#{$k}-contrast: color-yiq($v, $light, $dark)));
+  }
+
+  @return $ret;
+}
